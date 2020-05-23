@@ -7,6 +7,8 @@ const Lang = ({ defaultLang, children, translations }) => {
   const hyperTranslate = (text) => {
     if (lang === defaultLang) {
       return text;
+    } else {
+      return translations[lang][text];
     }
   };
   return (
