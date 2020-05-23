@@ -1,36 +1,10 @@
-import React, { useReducer, useState } from 'react';
-import reducer, {
-  initialState,
-  ADD,
-  DEL,
-  COMPLETE,
-  UNCOMPLETE,
-} from './reducer';
+import React from 'react';
+import Add from './Add';
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const [newToDo, setNewToDo] = useState('');
-  const onSubmit = (e) => {
-    e.preventDefault();
-    dispatch({ type: ADD, payload: newToDo });
-    setNewToDo('');
-  };
-  const onChange = (e) => {
-    const {
-      target: { value },
-    } = e;
-    setNewToDo(value);
-  };
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input
-          value={newToDo}
-          type="text"
-          placeholder="Write to do"
-          onChange={onChange}
-        />
-      </form>
+      <Add />
       <ul>
         <h2>To Dos</h2>
         {state.toDos.map((toDo) => (
